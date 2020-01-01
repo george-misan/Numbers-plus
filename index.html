@@ -1,0 +1,120 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="./style/styles.css">
+    <title>Number ++</title>
+</head>
+<body>
+
+      <!-- NAVBAR -->
+      <nav class="z-depth-0 grey lighten-4">
+        <div class="nav-wrapper container">
+          <a href="#" class="brand-logo">
+            <img src="img/plus.png" style="width: 40px; margin-top: 10px;">
+          </a>
+          <ul id="nav-mobile" class="right hide-on-med-and-down">
+              <li class="logged-in">
+                <a href="#" class="grey-text" id="logout">Logout</a>
+              </li>
+              <li class="logged-out">
+                <a href="#" class="grey-text modal-trigger" data-target="modal-login">Login</a>
+              </li>
+              <li class="logged-out">
+                <a href="#" class="grey-text modal-trigger" data-target="modal-signup">Sign up</a>
+              </li>
+            </span>
+          </ul>
+        </div>
+      </nav>
+      <!-- SIGN UP MODAL -->
+      <div id="modal-signup" class="modal">
+        <div class="modal-content">
+          <h4>Sign up</h4><br />
+          <form id="signup-form">
+            <div class="input-field">
+              <input type="email" id="signup-email" required />
+              <label for="signup-email">Email address</label>
+            </div>
+            <div class="input-field">
+              <input type="password" id="signup-password" required />
+              <label for="signup-password">Choose password</label>
+            </div>
+            <button class="btn yellow darken-2 z-depth-0">Sign up</button>
+            <div class="signup-error red-text"></div>
+          </form>
+        </div>
+      </div>
+      <!-- LOGIN MODAL -->
+      <div id="modal-login" class="modal">
+        <div class="modal-content">
+          <h4>Login</h4><br />
+          <form id="login-form">
+            <div class="input-field">
+              <input type="email" id="login-email" required />
+              <label for="login-email">Email address</label>
+            </div>
+            <div class="input-field">
+              <input type="password" id="login-password" required />
+              <label for="login-password">Your password</label>
+            </div>
+            <button class="btn yellow darken-2 z-depth-0">Login</button>
+            <div class="error-msg red-text"></div>
+          </form>
+        </div>
+      </div>
+    </nav>
+
+
+
+    <!--  container page --> 
+    
+    <div class="container template">
+    <div class="center-align">
+        <button class="btn-floating btn-large waves-effect waves-light green" id="btn1"><div class="update-number"></div></button>
+    </div>
+
+    </div>
+
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+
+<script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-firestore.js"></script>
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyBlJlS_g7b6oqWnfDl25e_c4H1bjrBJH_w",
+    authDomain: "numbers-ccf97.firebaseapp.com",
+    databaseURL: "https://numbers-ccf97.firebaseio.com",
+    projectId: "numbers-ccf97"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+
+  //make auth and firestore settings
+  const auth = firebase.auth();
+  const db = firebase.firestore();
+</script>
+
+<!-- Compiled and minified JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+
+<script src="scripts/auth.js"></script>
+<script src="scripts/app.js"></script>   
+
+</body>
+</html>
+
+
+
+
+
