@@ -7,7 +7,7 @@ const number = document.querySelector('.update-number')
 
     const addtoDOM = (num) => {
             let html = `
-                ${num.number}
+               ${num.number}
             `;
 
             button.innerHTML = html;  
@@ -20,32 +20,44 @@ const number = document.querySelector('.update-number')
                 const doc = change.doc;
                 if(change.type === 'added' || "modify"){
                     addtoDOM(doc.data());
-                    console.log(doc.data())
                 }
             })
         })
 
  
 
+    
 
-const disableEnable = (e) => {
 
 
     document.getElementById('btn1').onclick = function(){
 
-        db.collection('numbers').get().then((snapshot) => {
-            snapshot.forEach(doc => {
-
-        let n = doc.data().number
         const now = new Date();
-        // now.setHours(now.getHours() + 0.167)
+        const uid = firebase.auth().currentUser.uid;
+
+            db.collection('numbers').get().then((snapshot) => {
+                snapshot.forEach(doc => {
+
+            let n = doc.data().number
+            now.setMinutes(now.getMinutes() + 30)
+                
+                console.log(n)
+                db.collection('numbers').doc('rI9w5IuKfNXLpFyDosu3').update ({
+                    "number" : ++n
+                });
+
+                db.collection('Users').get().then((snapshot) => {
+                    snapshot.forEach((doc) => {
+
+                        if(uid===doc.data().id){
+                            db.collection('Users').doc(doc.id).update ({
+                                created_at: firebase.firestore.Timestamp.fromDate(now)
+
+                            })
+                        }
+                    })
+                })})
             
-            console.log(n)
-            db.collection('numbers').doc('rI9w5IuKfNXLpFyDosu3').update ({
-                "number" : ++n,
-                "created_at" : firebase.firestore.Timestamp.fromDate(now)
-            })});
-        
 
         })
         
@@ -56,12 +68,12 @@ const disableEnable = (e) => {
 
         setTimeout(() =>{
             document.getElementById('btn1').removeAttribute('disabled');
-        }, 600000)
+        }, 1800000)
 
 
-  }}
+  }
 
-  disableEnable(button);
+
 
 
 

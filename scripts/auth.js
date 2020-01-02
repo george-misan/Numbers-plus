@@ -6,25 +6,33 @@ const signupError = document.querySelector('.signup-error')
 auth.onAuthStateChanged(user => {
     if(user) {
         button.removeAttribute('disabled');
+        // console.log(user)
 
-        db.collection('numbers').get().then((snapshot) => {
-            snapshot.forEach(doc => {
-
-        let savedDate = doc.data().created_at.toDate()
-        const currentDate = new Date();
-
-        console.log("saved date: " + savedDate)
-        console.log("Current date: " + currentDate)
-
-        if (currentDate > savedDate){
-            button.removeAttribute('disabled');
-        } else {
-            button.setAttribute('disabled', 'disabled') 
-        }
+        const uid = firebase.auth().currentUser.uid;
         
-            
-           })})
-        
+        db.collection('Users').get().then((snapshot) => {
+            snapshot.forEach((doc) => {
+
+                if(uid===doc.data().id){
+                    db.collection('Users').doc(doc.id).get().then(doc =>{
+
+                        const savedDate = doc.data().created_at.toDate()
+                        const currentDate = new Date();
+                
+                        console.log("saved date: " + savedDate)
+                        console.log("Current date: " + currentDate)
+                
+                        if (currentDate > savedDate){
+                            button.removeAttribute('disabled');
+                        } else {
+                            button.setAttribute('disabled', 'disabled') 
+                        }  
+
+                        
+                    })
+                }
+            })
+        })
 
   
     } else {
@@ -47,6 +55,13 @@ signupForm.addEventListener('submit', (e) => {
         const modal = document.querySelector('#modal-signup');
         M.Modal.getInstance(modal).close();
         signupForm.reset();
+
+        const now = new Date();
+
+        db.collection('Users').add ({
+            "id" : firebase.auth().currentUser.uid,
+            "created_at" : firebase.firestore.Timestamp.fromDate(now)
+        });
         
 
     }).catch(function(error) {
