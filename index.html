@@ -22,14 +22,14 @@
             <img src="img/plus.png" style="width: 35px; margin-top: 14px;">
           </a>
           <ul id="nav-mobile" class="right hide-on-med-and-down">
-              <li class="logged-in">
+              <li class="logged-out">
                 <a href="#" class="grey-text" id="logout">Logout</a>
               </li>
-              <li class="logged-out">
-                <a href="#" class="grey-text modal-trigger" data-target="modal-login">Login</a>
+              <li class="logged-in">
+                <a href="#" class="grey-text modal-trigger logged-out" data-target="modal-login">Login</a>
               </li>
-              <li class="logged-out">
-                <a href="#" class="grey-text modal-trigger" data-target="modal-signup">Sign up</a>
+              <li class="logged-in">
+                <a href="#" class="grey-text modal-trigger logged-out" data-target="modal-signup">Sign up</a>
               </li>
             </span>
           </ul>
@@ -87,7 +87,12 @@
     
     <div class="container template">
     <div class="center-align">
-        <button class="btn-floating cta-btn btn-white btn-large waves-effect waves-light green" id="btn1"><div class="update-number"></div></button>
+      <div class="caution">
+        <h6 class="heading">
+          <span class="heading-primary logged-in">Please login or signup to interact with the button!</span>
+        </h6>
+      </div>
+        <button class="btn-floating cta-btn cta-btn--animation btn-white btn-large waves-effect waves-light green" id="btn1"><div class="update-number"></div></button>
     </div>
 
     </div>

@@ -1,12 +1,15 @@
 const page = document.querySelector('.template');
 const alert = document.querySelector('.update-mssg');
-const errorMsg = document.querySelector('.error-msg') 
-const signupError = document.querySelector('.signup-error')
+const errorMsg = document.querySelector('.error-msg'); 
+const signupError = document.querySelector('.signup-error');
+const heading = document.querySelector('.heading');
+const loggedIn = document.querySelectorAll('.logged-in');
+const loggedOut = document.querySelector('.logged-out');
 
 auth.onAuthStateChanged(user => {
     if(user) {
         button.removeAttribute('disabled');
-        // console.log(user)
+        loggedIn.classList.add('hide');
 
         const uid = firebase.auth().currentUser.uid;
         
@@ -34,9 +37,12 @@ auth.onAuthStateChanged(user => {
             })
         })
 
+        
+
   
     } else {
         button.setAttribute('disabled', 'disabled')
+
     }
 })
 
