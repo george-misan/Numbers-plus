@@ -92,6 +92,12 @@ logout.addEventListener('click',(e) => {
     auth.signOut()
 });
 
+const logoutSidenav = document.querySelector('#logout-sidenav');
+logoutSidenav.addEventListener('click',(e) => {
+    e.preventDefault();
+    auth.signOut()
+});
+
 //login
 const loginForm = document.querySelector('#login-form');
 loginForm.addEventListener('submit', (e) => {

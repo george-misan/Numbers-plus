@@ -15,6 +15,9 @@
       <!-- NAVBAR -->
       <nav class="z-depth-0 grey lighten-4">
         <div class="nav-wrapper container">
+          <a href="" class="sidenav-trigger grey-text" data-target="mobile-menu">
+            <i class="material-icons">menu</i>
+        </a>
           <a href="#" class="brand-logo">
             <img src="img/plus.png" style="width: 35px; margin-top: 14px;">
           </a>
@@ -31,6 +34,14 @@
             </span>
           </ul>
         </div>
+
+      </ul>
+      <ul class="sidenav grey lighten-2" id="mobile-menu">
+          <li><a href="#" class="grey-darken-3-text modal-trigger" data-target="modal-login">Login</a></li>
+          <li><a href="#" class="grey-darken-3-text modal-trigger" data-target="modal-signup">Sign up</a></li>
+          <li><a href="#" class="grey-darken-3-text" id="logout-sidenav">Logout</a></li>
+      </ul>
+  </div>
       </nav>
       <!-- SIGN UP MODAL -->
       <div id="modal-signup" class="modal">
@@ -110,6 +121,16 @@
 
 <script src="scripts/auth.js"></script>
 <script src="scripts/app.js"></script>   
+
+
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+<script>
+  $(document).ready(function(){
+      $('.sidenav').sidenav();
+  });
+</script>
 
 </body>
 </html>
