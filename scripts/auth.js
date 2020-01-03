@@ -24,9 +24,6 @@ auth.onAuthStateChanged(user => {
                         const savedDate = doc.data().created_at.toDate()
                         const currentDate = new Date();
                 
-                        console.log("saved date: " + savedDate)
-                        console.log("Current date: " + currentDate)
-                
                         if (currentDate > savedDate){
                             button.removeAttribute('disabled');
                         } else {
@@ -39,7 +36,7 @@ auth.onAuthStateChanged(user => {
         })
   
     } else {
-        
+
         button.setAttribute('disabled', 'disabled')
         loggedInLinks.forEach(item => item.style.display = 'none');
         loggedOutLinks.forEach(item => item.style.display = 'block');

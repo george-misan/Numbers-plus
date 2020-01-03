@@ -32,7 +32,6 @@ const number = document.querySelector('.update-number')
             let n = doc.data().number
             now.setMinutes(now.getMinutes() + 1440)
                 
-                console.log(n)
                 db.collection('numbers').doc('rI9w5IuKfNXLpFyDosu3').update ({
                     "number" : ++n
                 });
