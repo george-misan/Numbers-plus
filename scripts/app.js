@@ -30,7 +30,7 @@ const number = document.querySelector('.update-number')
                 snapshot.forEach(doc => {
 
             let n = doc.data().number
-            now.setMinutes(now.getMinutes() + 30)
+            now.setMinutes(now.getMinutes() + 1440)
                 
                 console.log(n)
                 db.collection('numbers').doc('rI9w5IuKfNXLpFyDosu3').update ({
@@ -55,7 +55,7 @@ const number = document.querySelector('.update-number')
 
         setTimeout(() =>{
             document.getElementById('btn').removeAttribute('disabled');
-        }, 1800000)
+        }, 86400000)
   }
 
 
