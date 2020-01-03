@@ -1,0 +1,111 @@
+﻿List the programming language(s) you would use 
+
+
+JavaScript
+jQuery
+CSS
+Materialize CSS
+
+
+
+
+Document any API's you would build 
+
+
+In this project I used Google's Firebase platform. Firebase is a very powerful platform, which developers can use to build secure applications. Firebase provides hosting, realtime database, NoSQL database, functions and file storage
+
+
+* Initial Setup
+-In order to use Firebase you need to have a Google account but I used my existing account.
+- To start the process I created a new project via the Firebase Console.
+- Afterwards the initial database was created under "Cloud Firestore".
+- "Test mode" was selected to enable reads and writes; However during deployment the security rules was updated to improve security and integrity of data.
+
+
+* Writing Code
+- To connect firebase database to the Number++ project (The challenge). The Firebase configuration was injected into the index.html. I also created a "db" and "auth" variable to represent an instance of the Firebase database
+and Firebase authentication respectively
+
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyBlJlS_g7b6oqWnfDl25e_c4H1bjrBJH_w",
+    authDomain: "numbers-ccf97.firebaseapp.com",
+    databaseURL: "https://numbers-ccf97.firebaseio.com",
+    projectId: "numbers-ccf97"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+
+
+  //make auth and firestore settings
+  const auth = firebase.auth();
+  const db = firebase.firestore();
+</script>
+
+
+Note: I wouldn't usually share the database APIkey (it is supposed to be encrypted) in the code in order to ensure unauthorized access to the database. However, because of the nature of the project it is display on the code so you can see my process.
+
+
+* Deployment.
+
+
+Now we have a fully functional CRUD API from firebase firestore. We can set, update and remove data from collections in the database. Real-time listener was also used to listen to change in the firebase database and update the DOM appropriately as the changes occur.
+
+
+
+
+
+
+   Document any database schemas you'd create 
+  
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Draw a high-level architecture diagram 
+
+
+  
+
+
+
+Describe how and where the service/its components would be deployed 
+
+
+The service was deployed on Netlify. It's a platform hosting and serverless backend services 
+for static websites. It features continuous deployment from Git across a global application 
+delivery network, serverless form handling, support for AWS Lambda functions, and full integration with Encryption.
+
+
+
+
+Explain how you'd ensure the integrity of the core service 
+
+
+Data integrity refers to the reliability and trustworthiness of data throughout its lifecycle.
+In this project I ensured integrity by updating the security rules of Firebase cloud to ensure that
+only registered users can read and write to the database by interacting with the button . Security was ensured by using Firebase Authentication and for Maintainability, I accomplished this by writing code that is clean and modular and using github and Netlify to facilitate Continuous Integration and Continuous deployment (CICD).
