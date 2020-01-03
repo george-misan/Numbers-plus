@@ -3,13 +3,15 @@ const alert = document.querySelector('.update-mssg');
 const errorMsg = document.querySelector('.error-msg'); 
 const signupError = document.querySelector('.signup-error');
 const heading = document.querySelector('.heading');
-const loggedIn = document.querySelectorAll('.logged-in');
-const loggedOut = document.querySelector('.logged-out');
+const loggedOutLinks = document.querySelectorAll('.logged-out');
+const loggedInLinks = document.querySelectorAll('.logged-in')
+
 
 auth.onAuthStateChanged(user => {
     if(user) {
         button.removeAttribute('disabled');
-        loggedIn.classList.add('hide');
+        loggedInLinks.forEach(item => item.style.display = 'block');
+        loggedOutLinks.forEach(item => item.style.display = 'none');
 
         const uid = firebase.auth().currentUser.uid;
         
@@ -31,17 +33,16 @@ auth.onAuthStateChanged(user => {
                             button.setAttribute('disabled', 'disabled') 
                         }  
 
-                        
                     })
                 }
             })
         })
-
-        
-
   
     } else {
+        
         button.setAttribute('disabled', 'disabled')
+        loggedInLinks.forEach(item => item.style.display = 'none');
+        loggedOutLinks.forEach(item => item.style.display = 'block');
 
     }
 })
@@ -74,7 +75,7 @@ signupForm.addEventListener('submit', (e) => {
         // Handle Errors here.
         var errorCode = error.code;
         var errorMessage = error.message;
-        // [START_EXCLUDE]
+        
         if (errorCode == 'auth/weak-password') {
             signupError.innerHTML = 'The password is too weak.';
         } else {
@@ -123,7 +124,7 @@ loginForm.addEventListener('submit', (e) => {
         // Handle Errors here.
         var errorCode = error.code;
         var errorMessage = error.message;
-        // [START_EXCLUDE]
+        
         if (errorCode === 'auth/wrong-password') {
             errorMsg.innerHTML = 'Wrong password';
         } else {

@@ -1,33 +1,3 @@
-@keyframes moveInBottom {
-    0% {
-      opacity: 0;
-      transform: translateY(3rem); }
-    100% {
-      opacity: 1;
-      transform: translate(0); } }
-
-@keyframes moveInLeft {
-    0% {
-        opacity: 0;
-        transform: translateX(-10rem) rotate(0deg); }
-    80% {
-        transform: translateX(1rem); }
-    100% {
-        opacity: 1;
-        transform: translate(0); } }
-
-@keyframes moveInBottom {
-    0% {
-        opacity: 0;
-        transform: translateY(3rem); }
-    100% {
-        opacity: 1;
-        transform: translate(0); } }
-    
-
-
-
-
 .template{
     padding-top: 50px;
 }
@@ -77,19 +47,12 @@
     z-index: -1;
     transition: all .4s; }
   
-  .cta-btn--animation {
-    animation: moveInBottom .5s ease-out .75s;
-    animation-fill-mode: backwards; }
-  
 
 .heading-primary {
     color: rgb(68, 68, 68);
     margin-bottom: 3rem; 
     display: block;
     line-height: 2rem;
-    font-size: 1.4rem;
+    font-size: 1.3rem;
     font-weight: 400;
-    animation-name: moveInLeft;
-    animation-duration: 1s;
-    animation-timing-function: ease-out;
 }

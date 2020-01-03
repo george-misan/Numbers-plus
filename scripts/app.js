@@ -1,9 +1,7 @@
-const button = document.querySelector('#btn1')
+const button = document.querySelector('#btn')
 const number = document.querySelector('.update-number')
 
 
-
-// number.innerHTML = 7;
 
     const addtoDOM = (num) => {
             let html = `
@@ -11,8 +9,6 @@ const number = document.querySelector('.update-number')
             `;
 
             button.innerHTML = html;  
-            
-
         }
 
         db.collection('numbers').onSnapshot(snapshot => {
@@ -24,13 +20,8 @@ const number = document.querySelector('.update-number')
             })
         })
 
- 
 
-    
-
-
-
-    document.getElementById('btn1').onclick = function(){
+    document.getElementById('btn').onclick = function(){
 
         const now = new Date();
         const uid = firebase.auth().currentUser.uid;
@@ -57,20 +48,14 @@ const number = document.querySelector('.update-number')
                         }
                     })
                 })})
-            
-
         })
         
-
     
         button.setAttribute('disabled', 'disabled')
 
-
         setTimeout(() =>{
-            document.getElementById('btn1').removeAttribute('disabled');
+            document.getElementById('btn').removeAttribute('disabled');
         }, 1800000)
-
-
   }
 
 
